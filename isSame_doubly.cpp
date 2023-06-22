@@ -23,16 +23,6 @@ void print_normal(Node *head)
     }
     cout << endl;
 }
-void print_reverse(Node *tail)
-{
-    Node *tmp = tail;
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->prev;
-    }
-    cout << endl;
-}
 int size(Node *head)
 {
     Node *tmp = head;
@@ -57,7 +47,7 @@ void insert_tail(Node *&head, Node *&tail, int val)
     newNode->prev = tail;
     tail = tail->next;
 }
-bool are_some(Node *headOne, Node *headTwo)
+bool are_same(Node *headOne, Node *headTwo)
 {
     if (size(headOne) != size(headTwo))
     {
@@ -95,6 +85,6 @@ int main()
     }
     print_normal(headOne);
     print_normal(headTwo);
-    are_some(headOne, headTwo) ? cout << "YES\n" : cout << "NO\n";
+    are_same(headOne, headTwo) ? cout << "YES\n" : cout << "NO\n";
     return 0;
 }
