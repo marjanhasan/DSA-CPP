@@ -18,14 +18,14 @@ int main()
         cin >> b;
         q.push(b);
     }
-    if (st.size() != q.size())
+    if (st.size() != q.size() || n != m)
     {
         cout << "NO";
         return 0;
     }
     while (!q.empty())
     {
-        if (st.top() != q.front() || n != m)
+        if (st.top() != q.front())
         {
             cout << "NO";
             return 0;
