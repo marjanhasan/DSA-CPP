@@ -120,20 +120,12 @@ int main()
     // Write your code here
     int n, m;
     cin >> n >> m;
-    int arr1[n], arr2[m];
     myStack st;
     for (int i = 0; i < n; i++)
     {
         int a;
         cin >> a;
         st.push(a);
-    }
-    int i = 0;
-    while (!st.empty())
-    {
-        arr1[i] = st.top();
-        st.pop();
-        i++;
     }
     myQueue q;
     for (int i = 0; i < n; i++)
@@ -142,25 +134,20 @@ int main()
         cin >> b;
         q.push(b);
     }
-    i = 0;
-    while (!q.empty())
-    {
-        arr2[i] = q.front();
-        q.pop();
-        i++;
-    }
-    if (st.sz != q.sz)
+    if (st.sz != q.sz || n != m)
     {
         cout << "NO";
         return 0;
     }
-    for (int i = 0; i < n; i++)
+    while (!st.empty())
     {
-        if (arr1[i] != arr2[i])
+        if (st.top() != q.front())
         {
             cout << "NO";
             return 0;
         }
+        st.pop();
+        q.pop();
     }
     cout << "YES";
     return 0;
