@@ -1,2 +1,2 @@
-if (f->right)
+ht)
             q.push(f->right);

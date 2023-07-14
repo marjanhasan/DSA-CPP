@@ -13,7 +13,7 @@ public:
         this->right = NULL;
     }
 };
-vector<int> v;
+stack<int> st;
 Node *input_tree()
 {
     int val;
@@ -48,26 +48,32 @@ Node *input_tree()
 }
 void level_order(Node *root)
 {
+    if (root == NULL)
+    {
+        return;
+    }
     queue<Node *> q;
     q.push(root);
     while (!q.empty())
     {
         Node *f = q.front();
         q.pop();
-
-        if (f->left == NULL && f->right == NULL)
-            v.push_back(f->val);
-
-        if (f->left)
-            q.push(f->left);
+        st.push(f->val);
         if (f->right)
             q.push(f->right);
+        if (f->left)
+            q.push(f->left);
     }
 }
 int main()
 {
     Node *root = input_tree();
     level_order(root);
-    cout << *max_element(v.begin(), v.end()) << " " << *min_element(v.begin(), v.end());
+    while (!st.empty())
+    {
+        cout << st.top() << " ";
+        st.pop();
+    }
+
     return 0;
 }
