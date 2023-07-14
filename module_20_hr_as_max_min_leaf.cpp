@@ -46,19 +46,33 @@ Node *input_tree()
     }
     return root;
 }
+// void count_leaf(Node *root)
+// {
+//     if (root == NULL)
+//         return;
+//     if (root->left == NULL && root->right == NULL)
+//     {
+//         v.push_back(root->val);
+//         cout << root->val << endl;
+//     }
+//     else
+//     {
+//         count_leaf(root->left);
+//         count_leaf(root->right);
+//     }
+// }
 void level_order(Node *root)
 {
-    if (root == NULL)
-    {
-        return;
-    }
     queue<Node *> q;
     q.push(root);
     while (!q.empty())
     {
         Node *f = q.front();
         q.pop();
-        v.push_back(f->val);
+
+        if (f->left == NULL && f->right == NULL)
+            v.push_back(f->val);
+
         if (f->left)
             q.push(f->left);
         if (f->right)
