@@ -49,25 +49,35 @@ void level_order(Node *root)
 {
     if (root == NULL)
         return;
-    queue<Node *> q;   // khali queue
-    q.push(root);      // front e root diye dilam
-    while (!q.empty()) // queue khali na hwa porjonto cholbe
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
     {
-        Node *f = q.front(); // front node rakhlam
-        q.pop();             // front node ber kre dilam
+        Node *f = q.front();
+        q.pop();
 
-        cout << f->val << " "; // front node er value print krlam
-
-        // next level e gelam
+        cout << f->val << " ";
+        if (f->left)
+            q.push(f->left);
         if (f->right)
             q.push(f->right);
-        if (f->left)
-            q.push(f->left); //
     }
+}
+bool search(Node *root, int x)
+{
+    if (root == NULL)
+        return false;
+    if (x == root->val)
+        return true;
+    else if (x < root->val)
+        return search(root->left, x);
+    else
+        return search(root->right, x);
 }
 int main()
 {
     Node *root = input_tree();
     level_order(root);
+    (search(root, 9)) ? cout << "YES\n" : cout << "NO\n";
     return 0;
 }

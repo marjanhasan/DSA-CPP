@@ -1,2 +1,2 @@
-ht)
-            q.push(f->right);
+if (f->left)
+            q.push(f->left);
