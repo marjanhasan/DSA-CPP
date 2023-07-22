@@ -11,10 +11,10 @@ int main()
     {
         mp[word]++;
     }
-    // for (auto it = mp.begin(); it != mp.end(); it++)
-    // {
-    //     cout << it->first << " " << it->second << endl;
-    // }
-    cout << mp["She"] << endl;
+    for (auto it = mp.begin(); it != mp.end(); it++)
+    {
+        cout << it->first << " " << it->second << endl;
+    }
+    // cout << mp["She"] << endl;
     return 0;
 }

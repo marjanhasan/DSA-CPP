@@ -1,2 +1,1 @@
-if (f->left)
-            q.push(f->left);
+if (mp[i] == q)
